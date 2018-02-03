@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'Library/css/base.css' %}">
+    {% block link %}{% endblock %}
+</head>
+<body>
+    <div class="navBar">
+        <div class="title">
+            <img onclick="window.location = '{% url 'index' %}'" src="{% static 'Library/Img/library_logo.svg' %}" alt="">
+        </div>
+        <div class="right-menu">
+            <span onclick="window.location = '{% url 'index' %}'" class="option {% block active_Books %}{% endblock %}">Bo<span>o</span>ks</span>
+            <span onclick="window.location = '{% url 'author' %}'" class="option {% block active_Authors %}{% endblock %}"}>Aut<span>h</span>ors</span>
+        </div>
+    </div>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

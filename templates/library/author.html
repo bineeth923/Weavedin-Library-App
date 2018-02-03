@@ -1,0 +1,60 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}
+    Author
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'Library/css/author.css' %}">
+{% endblock %}
+{% block active_Authors %}
+    active
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="author_list">
+            <div class="topbar">
+                Author <span>{{ authors.count }} Authors</span>
+            </div>
+            <div class="author">
+                {% for author in authors %}
+                <div class="list" onclick="window.location='{% url 'single_book' author.id %}'">
+
+                    <div class="img">
+                        <img src="{% static 'Library/Img/author_icon.svg' %}" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="first-row">
+                            {{ author.name }} <span>Born in {{ author.country }}</span>
+                        </div>
+                        <div class="second-row">
+                            Age:{{ author.age }}/{{ author.gender }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="addAuthor">
+            <a href="#openModal">ADD AUTHOR</a>
+        </div>
+
+        <div id="openModal" class="modalDialog">
+            <div class="content">
+                <a href="#close" title="Close" class="close">X</a>
+
+                    <h2>ADD AUTHOR</h2>
+                <form action="{% url 'author' %}" method="post">
+                    {% csrf_token %}
+                    <input placeholder="Name" type="text" name="author"> <br>
+                    <input placeholder="Country" type="text" name="country"> <br>
+                    <input placeholder="Age" type="number" name="age"> <br>
+                    <input placeholder="Gender" type="text" name="gender" maxlength="6"> <br>
+                    <input placeholder="Description" type="text" name="description"> <br>
+                    <input type="submit">
+                </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

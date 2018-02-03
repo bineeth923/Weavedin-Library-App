@@ -1,0 +1,53 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ book.name }}
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'Library/css/book.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="book_list">
+            <div class="topbar">
+                <span style="color: #6379f6">BOOKS</span> /  Details
+            </div>
+            <div class="books">
+                <div class="img">
+                    <img src="{% static 'Library/Img/book_icon.svg' %}" alt="">
+                </div>
+                <div class="info">
+                    <div class="first-row">
+                        {{ book.name }} <span>ISBN - {{ book.isbn }}</span>
+                    </div>
+                    <div class="second-row">
+                        by <span>{{ book.author.name }}</span>
+                    </div>
+                    <div class="third-row">
+                        {{ book.description  }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="pre">
+                <a href="{% url 'single_book' pre_book %}"><img src="{% static 'Library/Img/prev_icon (3).svg' %}" alt=""></a>
+            </div>
+            <div class="next">
+                <a href="{% url 'single_book' next_book %}"><img src="{% static 'Library/Img/next_icon.svg' %}" alt=""></a>
+
+            </div>
+            <div class="desp">
+                Navigate to Previous / Next Book
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+{#    {{ book.name }}<br>#}
+{#    {{ book.author }}<br>#}
+{#    {{ book.description }}#}

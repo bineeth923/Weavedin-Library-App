@@ -1,0 +1,10 @@
+{% extends "library/base.html" %}
+{% load static %}
+{% block title %}{{ author.name }}{% endblock %}
+{% block body %}
+    Author :{{ author.name }}<br>
+    {% for book in books %}
+        Book:{{ book.name }}<br>
+        Description:{{ book.description }}
+    {% endfor %}
+{% endblock %}

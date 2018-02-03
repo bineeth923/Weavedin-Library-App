@@ -1,0 +1,156 @@
+.container{
+    width: inherit;
+    height: inherit;
+}
+.author_list{
+    width: 70%;
+    display: inline-block;
+}
+.author{
+    cursor: pointer;
+}
+.addAuthor{
+    width: 30%;
+    float: right;
+}
+.container{
+    padding: 3em;
+}
+.topbar{
+    position: relative;
+    color: gray;
+    padding: 2em 0;
+}
+.topbar span {
+    right: 0;
+    position: absolute;
+    font-size: 0.8em;
+    bottom: 39%;
+}
+.img{
+    float: left;
+}
+.first-row {
+    position: relative;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    font-family: sans-serif;
+}
+.first-row span {
+    position: absolute;
+    right: 0;
+    font-weight: 100;
+    font-size: 0.8em;
+    color: gray;
+}
+.second-row{
+    font-family: sans-serif;
+    font-size: 0.8em;
+    color: gray;
+}
+
+.info{
+    padding: 0 0 0 3.5em;
+}
+.addAuthor{
+    width: 30%;
+    float: right;
+    text-align: center;
+    margin-top: 6.2em;
+}
+.addAuthor a{
+        padding: 1em 5em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #6379f6;
+    color:white;
+    text-decoration: none;
+}
+.addAuthor a:hover{
+    cursor: pointer;
+}
+.list{
+    padding:1em 1em;
+    background-color: white;
+    margin-bottom: 0.3em;
+    transition: 0.35s ease-in-out;
+}
+.list:hover{
+    box-shadow: 0 0 5px grey;
+}
+/*Model*/
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog  .content {
+    width: 25vw;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 5px;
+    background: #f4f4f4;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.close {
+    color: black;
+    line-height: 25px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 5px;
+    font-size: 1.4em;
+    width: 24px;
+    text-decoration: none;
+}
+
+form input{
+    background: none;
+    padding: 0.2em 1em 0.2em 0.5em;
+    width: 90%;
+    border: none;
+    border-bottom: 2px solid #8080804d;
+    margin: 1.5em 1em
+}
+form input:active ,
+form input:focus ,
+form textarea:active,
+form textarea:focus{
+    outline: none;
+    border-bottom: 2px solid #6379f6;
+}
+form select{
+    padding: 0.5em 0.5em 0.5em 1em;
+    margin-left: 0.7em;
+    width: 100%;
+    border-radius: 5px;
+}
+form textarea{
+    margin-left: 3%;
+    background: no-repeat;
+    border: none;
+    border-bottom: 2px solid #8080804d;
+
+}
+input[type=submit]{
+    background-color: #6379f6;
+    padding: 1em;
+    border-radius: 10px;
+    color: white;
+}

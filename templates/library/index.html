@@ -1,0 +1,66 @@
+{% extends "library/base.html" %}
+{% load static %}
+
+{% block title %}
+    Library
+{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'Library/css/library.css' %}">
+{% endblock %}
+{% block active_Books %}
+    active
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="book_list">
+            <div class="topbar">
+                BOOKS <span>{{ books.count }} Books</span>
+            </div>
+            <div class="books">
+                {% for book in books %}
+                <div class="list" onclick="window.location='{% url 'single_book' book.id %}'">
+
+                    <div class="img">
+                        <img src="{% static 'Library/Img/book_icon.svg' %}" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="first-row">
+                            {{ book.name }} <span>ISBN - {{ book.isbn }}</span>
+                        </div>
+                        <div class="second-row">
+                            by <span>{{ book.author.name }}</span>
+                        </div>
+                        <div class="third-row">
+                            {{ book.description|truncatechars:100  }} <span>More</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="addBook">
+            <a href="#openModal">Add Book</a>
+        </div>
+
+        <div id="openModal" class="modalDialog">
+            <div class="content">
+                <a href="#close" title="Close" class="close">X</a>
+
+                    <h2>ADD BOOK</h2>
+                <form action="{% url 'index' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Name" required>
+                     <select  name="author" required>
+                                <option value="1">Select Author</option>
+                            {% for author in authors %}
+                                <option value="{{ author.name }}">{{ author.name }}</option>
+                            {% endfor %}
+                    </select><br>
+                     <input type="text" name="isbn" placeholder="ISBN" required> <br>
+                     <textarea placeholder="Description" name="description" id="" cols="30" rows="10" required></textarea> <br>
+                    <input type="submit">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
