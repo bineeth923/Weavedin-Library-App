@@ -54,7 +54,7 @@
     color: #808080d4;
     padding-right: 3em;
     padding-top: 1.5em;
-    white-space: pre-wrap;
+    white-space: pre-line;
     line-height: 22px;
 }
 .third-row span{
