@@ -57,8 +57,22 @@ def book(request , id):
 
 def author_detail(request , id):
     books = models.Book.objects.all().filter(author=models.Author.objects.get(id=id))
+    try:
+        models.Book.objects.get(id=int(id)+1)
+        next_book = int(id)+1
+    except:
+            next_book = id
+
+    try:
+        models.Book.objects.get(id=int(id)-1)
+        pre_book = int(id)-1
+    except:
+            pre_book = id
     context = {
-        'author' : models.Author.objects.get(id=id),
-        'books' : books
+        'pre_auth' : pre_book,
+        'next_auth' : next_book,
+        'author': models.Author.objects.get(id=id),
+        'books': books
     }
+
     return render(request , 'library/author_indi.html' , context)

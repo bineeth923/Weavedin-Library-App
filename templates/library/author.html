@@ -18,7 +18,7 @@
             </div>
             <div class="author">
                 {% for author in authors %}
-                <div class="list" onclick="window.location='{% url 'single_book' author.id %}'">
+                <div class="list" onclick="window.location='{% url 'single_author' author.id %}'">
 
                     <div class="img">
                         <img src="{% static 'Library/Img/author_icon.svg' %}" alt="">

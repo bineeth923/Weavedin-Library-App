@@ -1,0 +1,156 @@
+.container{
+    width: inherit;
+    height: inherit;
+}
+.book_list{
+    width: 70%;
+    display: inline-block;
+}
+
+
+.addAuthor{
+    width: 30%;
+    float: right;
+}
+.container{
+    padding: 3em;
+}
+.topbar{
+    position: relative;
+    color: gray;
+    padding: 2em 0;
+    font-size: 0.8em;
+}
+
+.img{
+    float: left;
+}
+.first-row {
+    position: relative;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    font-family: sans-serif;
+}
+.first-row span {
+    position: absolute;
+    right: 0;
+    font-weight: 100;
+    font-size: 0.8em;
+    color: gray;
+}
+.second-row{
+    font-family: sans-serif;
+    font-size: 0.8em;
+    color: gray;
+    padding-bottom: 0.5em;
+}
+.second-row span{
+    font-weight: bold;
+    color: black;
+}
+.third-row{
+    font-family: sans-serif;
+    font-size: 0.8em;
+    color: #808080d4;
+    white-space: pre-wrap;
+}
+.third-row span{
+    color: Blue;
+}
+.info{
+    padding: 0 0 0 3.5em;
+}
+.books{
+    background-color: white;
+    padding: 2em;
+}
+.books_written{
+    font-weight: 100;
+    font-size: 0.8em;
+    color: gray;
+    padding: 3em 0;
+}
+.list{
+    cursor: pointer;
+    padding: 0.5em;
+    border: 1px solid lightgray;
+    transition: 0.35s ease-in-out;
+    margin-bottom: 0.5em;
+}
+.list:hover{
+        box-shadow: 0 0 3px black;
+
+}
+.nav{
+    width: 30%;
+    float: right;
+    text-align: center;
+    margin-top: 5.6em;
+}
+.nav .pre{
+    display: inline;
+    padding: 2em 3em 1em;
+    background: white;
+    border: lightgray solid 1px;
+    cursor: pointer;
+    transition: 0.35s ease-in-out;
+}
+.nav .next{
+    display: inline;
+    padding: 2em 3em 1em;
+    background: white;
+    border: lightgray solid 1px;
+    cursor: pointer;
+    transition: 0.35s ease-in-out;
+
+}
+.desp{
+    padding-top: 2em;
+    font-size: 0.8em;
+    color: gray;
+
+}
+.next:hover , .pre:hover{
+    box-shadow: 0 0 2px lightgrey;
+}
+
+/*Model*/
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog  .content {
+    width: 70vw;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 5px;
+    background: #f4f4f4;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.close {
+    color: black;
+    line-height: 25px;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 5px;
+    font-size: 1.4em;
+    width: 24px;
+    text-decoration: none;
+}

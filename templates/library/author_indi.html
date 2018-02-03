@@ -1,10 +1,72 @@
 {% extends "library/base.html" %}
 {% load static %}
 {% block title %}{{ author.name }}{% endblock %}
+{% block link %}
+    <link rel="stylesheet" href="{% static 'Library/css/single_auth.css' %}">
+{% endblock %}
 {% block body %}
-    Author :{{ author.name }}<br>
-    {% for book in books %}
-        Book:{{ book.name }}<br>
-        Description:{{ book.description }}
-    {% endfor %}
+    <div class="container">
+        <div class="book_list">
+            <div class="topbar">
+                <span style="color: #6379f6">Authors</span> /  Details
+            </div>
+            <div class="books">
+                <div class="img">
+                    <img src="{% static 'Library/Img/author_icon.svg' %}" alt="">
+                </div>
+                <div class="info">
+                    <div class="first-row">
+                        {{ author.name }} <span>Born in {{ author.country }}</span>
+                    </div>
+                    <div class="second-row">
+                        Age <span>{{ author.age }}/{{ author.gender }}</span>
+                    </div>
+                    <div class="third-row">
+                        {{ author.description|truncatechars:50  }}
+                    </div>
+                    <div class="books_written">
+                    BOOKS WRITTEN <span>{{ books.count }}</span>
+                </div>
+                {% for book in books %}
+                <div class="list" onclick="window.location='{% url 'single_book' book.id %}'">
+
+                    <div class="img">
+                        <img src="{% static 'Library/Img/book_icon.svg' %}" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="first-row">
+                            {{ book.name }} <span>ISBN - {{ book.isbn }}</span>
+                        </div>
+                        <div class="second-row">
+                            by <span>{{ book.author.name }}</span>
+                        </div>
+                        <div class="third-row">
+                            {{ book.description|truncatechars:100  }} <span>More</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+
+            </div>
+        </div>
+        <div class="nav">
+            <div class="pre">
+                <a href="{% url 'single_author' pre_auth %}"><img src="{% static 'Library/Img/prev_icon (3).svg' %}" alt=""></a>
+            </div>
+            <div class="next">
+                <a href="{% url 'single_author' next_auth %}"><img src="{% static 'Library/Img/next_icon.svg' %}" alt=""></a>
+
+            </div>
+            <div class="desp">
+                Navigate to Previous / Next Book
+            </div>
+        </div>
+    </div>
+
+{#    Author :{{ author.name }}<br>#}
+{#    {% for book in books %}#}
+{#        Book:{{ book.name }}<br>#}
+{#        Description:{{ book.description }}#}
+{#    {% endfor %}#}
 {% endblock %}
