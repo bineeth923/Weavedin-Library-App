@@ -52,7 +52,7 @@
     font-family: sans-serif;
     font-size: 0.8em;
     color: #808080d4;
-    white-space: pre-wrap;
+    white-space: unset;
 }
 .third-row span{
     color: Blue;
