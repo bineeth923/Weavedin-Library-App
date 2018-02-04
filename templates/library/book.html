@@ -32,11 +32,11 @@
             </div>
         </div>
         <div class="nav">
-            <div class="pre">
-                <a href="{% url 'single_book' pre_book %}"><img src="{% static 'Library/Img/prev_icon (3).svg' %}" alt=""></a>
+            <div class="pre" onclick="window.location='{% url 'single_book' pre_book %}'">
+                <a><img src="{% static 'Library/Img/prev_icon (3).svg' %}" alt=""></a>
             </div>
-            <div class="next">
-                <a href="{% url 'single_book' next_book %}"><img src="{% static 'Library/Img/next_icon.svg' %}" alt=""></a>
+            <div class="next" onclick="window.location='{% url 'single_book' next_book %}'">
+                <a><img src="{% static 'Library/Img/next_icon.svg' %}" alt=""></a>
 
             </div>
             <div class="desp">
